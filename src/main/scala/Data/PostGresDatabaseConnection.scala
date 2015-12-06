@@ -9,6 +9,8 @@ case class PostgresDatabaseConnection (db: String) {
   val conn = DriverManager.getConnection(connectionUrl)
 
 
+  def GetConn = conn
+
   def Close():Unit  = {
     conn.close()
   }

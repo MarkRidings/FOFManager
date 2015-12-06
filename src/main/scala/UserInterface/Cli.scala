@@ -1,5 +1,6 @@
 package UserInterface
 
+import Commands.DisplayFreeAgentsCommand
 import Data.DatabaseManager
 import FileHandling.FileIO
 import scala.io.StdIn
@@ -20,6 +21,7 @@ class Cli {
     case "list" =>
       file.ListDir()
       println()
+
     case "use" =>
       if (line.split(' ').length > 2) {
         println("ERROR: load only accepts one argument")
@@ -39,6 +41,12 @@ class Cli {
       }
 
       println()
+
+    case "fa" =>
+      val tokens = line.split(' ')
+      val command = if (tokens.length == 1) DisplayFreeAgentsCommand(Array("All"), dbManager) else DisplayFreeAgentsCommand(tokens.tail, dbManager)
+      val result = command.Execute
+
     case _ =>
       println(line)
       println()

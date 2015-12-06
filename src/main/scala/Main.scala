@@ -9,8 +9,6 @@ object Main {
     val cli = new Cli()
     cli.DisplayWelcome()
     cli.GetInput()
-
-
   }
 
 }
