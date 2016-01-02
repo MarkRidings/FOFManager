@@ -22,4 +22,8 @@ case class DatabaseManager (league: String) {
     tran.executeUpdate(statement)
   }
 
+  def Close(): Unit = {
+    db.Close()
+  }
+
 }

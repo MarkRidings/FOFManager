@@ -12,7 +12,7 @@ abstract class FreeAgentQueriesBase {
           LEFT JOIN player_record pc ON pc.player_id = r.player_id
           LEFT JOIN team_information ti ON ti.team = pc.team
         WHERE
-          %s
+          (%s)
           AND pc.contract_length = 0
           AND (pc.experience > 4 OR ti.home_city is null)
     """.stripMargin

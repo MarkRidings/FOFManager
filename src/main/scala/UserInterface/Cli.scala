@@ -32,6 +32,10 @@ class Cli {
       else {
         val dirInfo = file.GetDirectoryIndex(line.split(' ').last)
         if (dirInfo._1 > -1) {
+          if (dbManager != null) {
+            dbManager.Close()
+          }
+
           dbManager = DatabaseManager(dirInfo._2)
           println("USING: %s".format(dirInfo._2))
         }
